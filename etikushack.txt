@@ -1,3 +1,5 @@
+/usr/share/wordlists/rockyou.txt  
+
 msfvenom -l playloads
 
 // listener
@@ -28,3 +30,24 @@ dirbuster
 /usr/share/wordlists/dirb/common.txt
 
 wpscan 
+-h
+-o output file
+-f format
+--deteection-mode MODE mennyire erőszakosan próbálja felfedezni az oldalakat
+aggresszív mód (jobban észrevesznek) passzív mód, alap beállítás kevert
+--user-agent --rua random váltogatja a botokat
+--http-auth login:password milyen login password kombóval tudja a wpscan átlépni az oldalt
+--throttle milliseconds várakozás kattintás várakozás szimuláció
+-e beállíthatjuk mire vagyunk kíváncsiak, 
+  -vp vulnerable plugins
+  -u user
+  -at all themes
+  -ap all plugins
+-U username listája
+  --lgin-rui URI ha zhn máshol található a login uri https://40.0.4.27 /secret
+--stealthy
+
+wpscan --url http://40.0.4.10 -e u,at,ap
+
+wpscan --url http://40.0.4.10 --usernames admin --passwords /usr/share/wordlists/rockyou.txt 
+ha < 5k akkor nem jelszót kell brute forceolni
