@@ -81,7 +81,7 @@ msfconsole > use exploit/multi/handler // ez csak listener
 set payload php/meterpreter/reverse_tcp
 run // olyan mint a netcates listener
 
-**6.gyak
+6.gyak
 thecartpress 
 exploit-db.com
 zh-n verzióban feljebb lehet menni de lejebb nem
