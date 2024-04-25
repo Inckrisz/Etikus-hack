@@ -1,5 +1,25 @@
 /usr/share/wordlists/rockyou.txt  
 
+/opt/VBoxGuestAdditions-7.0.6/bin/VBoxDRMClient
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper
+/usr/lib/xorg/Xorg.wrap
+/usr/lib/openssh/ssh-keysign
+/usr/lib/polkit-1/polkit-agent-helper-1
+/usr/bin/umount
+/usr/bin/gpasswd
+/usr/bin/newgrp
+/usr/bin/chsh
+/usr/bin/sudo
+/usr/bin/mount
+/usr/bin/fusermount3
+/usr/bin/passwd
+/usr/bin/pkexec
+/usr/bin/ntfs-3g
+/usr/bin/chfn
+/usr/bin/su
+/usr/sbin/pppd
+
+
 msfvenom -l playloads
 
 // listener
