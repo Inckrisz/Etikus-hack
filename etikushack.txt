@@ -285,6 +285,22 @@ FoxyProxy
 Burp intercept on akkor ha bejelentkezünk wp-login.php-n akkor várakoztatni fog
 ZH-ban lehet a burp-on a jelszót kell változtatni
 Ctrl + R send to repeater 
+send - response
+
+Ctrl + I send to intruder
+Sniper mód elég mindig ugyanazt illeszti be a mezőkbe, pl felhasználónév alma jelszó alma ...
+Cluster bomb 10-10 100 kísérlet 2 mezőnél
+
+kijelölni a passwordot és add payload majd payload mező
+zhn valahol 100-200 jelszó fájl azt kell kimásolni és paste majd start attack
+status code nem jelent semmit
+válasznak a hossza bájtokban finalfantasynál kisebb jóval
+ha most beírjuk a wp-login.php-nél akkor interceptet előbb offra kell tenni v proxyt kinyomni
+
+
+
+
+
 
 
 
