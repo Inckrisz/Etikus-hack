@@ -297,7 +297,7 @@ status code nem jelent semmit
 válasznak a hossza bájtokban finalfantasynál kisebb jóval
 ha most beírjuk a wp-login.php-nél akkor interceptet előbb offra kell tenni v proxyt kinyomni
 
-
+basic authentication burpel nem lehet
 
 
 
