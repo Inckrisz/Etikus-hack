@@ -267,6 +267,14 @@ Vtcsecs <-> 40.0.8.-
 sudo nano /etc/hosts vtcsec  40.0.8.10
 
 
+12.gyakorlat
+/home/student/vpn studentXX XX vmi szám 1-25
+username jelszó studentXX studentXX
+ip a 60.0.x.y
+
+burpsuite 
+next next (alapértelmezett első pötty)
+
 
 
 
