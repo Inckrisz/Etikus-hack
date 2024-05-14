@@ -326,3 +326,5 @@ dirb http://40.0.3.1/admin /usr/share/wordlists/dirb/common.txt -r -u admin:prin
 
 sudo nmap -sS -sV -p- ip
 ssh -p 1418 (port) student@40.0.2.1 (user@IP)
+
+METERPRETEEN BELÜL execute -f /bin/bash -i -c "find / -perm -u=s 2>/dev/null"
