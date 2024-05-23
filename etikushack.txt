@@ -424,6 +424,12 @@ vagy SSH-n kate:jelszó -val
 sudo apt changelog apt - elsőnek ezt
 !/bin/sh - majd ezt
 
+https://www.youtube.com/watch?v=1QBhYovT-LI
+
+https://www.youtube.com/watch?v=NJvPoHR90hs
+
+
+
 
 
 
