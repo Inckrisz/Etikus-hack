@@ -381,6 +381,25 @@ ekkor sudo-val futttatom a fájlt, így root leszek pl: sudo és a sudo -l -ben 
 ERŐS GÉP:
 RHOST: 40.0.40...
 sudo nmap -sS -sV ip
+default page-n nincsenek elrejtve dolgok
+
+DIRB:
+dirb http://IP /usr/share/wordlists/dirb/common.txt (nincs szükség semmi felhasználó jelszó párosra mert nem volt BA)
+itt pl lehet egy robots.txt vagy bármi txt fájl
+
+(ezen a gépen a 8080-as porton webmin volt)
+tanár úr valószínűleg megadja a username-t itt noflag volt
+
+burpsuite 
+firefox-ban proxy beállítása foxyproxy
+utána webmin authenticationál noflag:vmit_beírsz és enter / sign in
+burpsuite-on proxy fülre 
+jelszót kijelölve jobb gomb intruder
+intrudernél kijelölni a jelszót add $
+utána payloads fül és bemásolom a jelszavakat
+ha valahol a Length nagyon különböző akkor az lesz a jó.
+((MEGJEGYZÉS: Lehet több burpsuiteot és feldarabolni a txt fájlt több kisebb részre pl 150 jelszó esetén 50-50-50))
+
 
 
 
